@@ -7,9 +7,15 @@ public class Bebida {
 
     Bebida proximo;
 
+    public Bebida(TipoBebida tipo) {
+        this.qtd = 1;
+        this.tipo = tipo;
+        proximo = null;
+    }
+
     public Bebida(TipoBebida tipo, int qtd) {
         this.qtd = qtd;
-        this.tipo = tipo; 
+        this.tipo = tipo;
         proximo = null;
     }
 }
