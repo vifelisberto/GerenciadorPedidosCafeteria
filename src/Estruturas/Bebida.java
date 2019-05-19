@@ -2,8 +2,8 @@ package Estruturas;
 
 public class Bebida {
 
-    TipoBebida tipo;
-    int qtd; //verificar
+    public TipoBebida tipo;
+    protected int qtd; //verificar
 
     Bebida proximo;
 

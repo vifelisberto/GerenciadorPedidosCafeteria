@@ -24,14 +24,18 @@ public class FilaBebidasPedido implements TADFilaBebidasPedido {
 
     @Override
     public void enqueue(TipoBebida bebida, int qtd) {
-        Bebida novo = new Bebida(bebida, qtd);
-        if (!isEmpty()) {
-            fim.proximo = novo;
-        } else {
-            inicio = novo;
+
+        while (qtd-- > 0) {
+            Bebida novo = new Bebida(bebida);
+            
+            if (!isEmpty()) {
+                fim.proximo = novo;
+            } else {
+                inicio = novo;
+            }
+            fim = novo;
+            quantidade++;
         }
-        fim = novo;
-        quantidade++;
     }
 
     @Override
