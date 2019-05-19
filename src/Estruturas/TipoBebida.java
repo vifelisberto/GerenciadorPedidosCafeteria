@@ -1,7 +1,7 @@
 package Estruturas;
 
 public enum TipoBebida {
-    Cafe(1), Cappuccino(2), Chocollate(3), Cha(4);
+    Cafe(1), Cappuccino(2), Chocolate(3), Cha(4);
 
     private final int tipo;
 
