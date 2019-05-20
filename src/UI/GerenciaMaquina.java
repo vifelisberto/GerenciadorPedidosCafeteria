@@ -7,6 +7,7 @@ import Estruturas.ListaPilhasBebidasEstoque;
 import Estruturas.Pedido;
 import Estruturas.PilhaBebidas;
 import Estruturas.TipoBebida;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class GerenciaMaquina {
@@ -50,9 +51,14 @@ public class GerenciaMaquina {
                     pilhaBebidas.pop();
 
                     //Aqui é onde a bebida é tirada do estoque para ser entregue.
-                    JOptionPane.showConfirmDialog(null, "Pegue seu " + bebida.tipo.name() + " =D", "ENTREGA", 2);
+                    String strPath = System.getProperty("user.dir") + "/src/UI/";
+                    ImageIcon img = new ImageIcon(strPath + "cafeFinal.png");
+                    
+                    JOptionPane.showMessageDialog(null, "Pegue seu " + bebida.tipo.name() + " =D", "Entrega Pedido - GustCoffee", JOptionPane.INFORMATION_MESSAGE, img);
+                    
+                    //https://icons8.com.br/icon/65369/caf%C3%A9-para-viagem
                 } else {
-                    JOptionPane.showMessageDialog(null, "Infelizmente não temos mais " + bebida.tipo.name() + " :(", "Alerta", 2);
+                    JOptionPane.showMessageDialog(null, "Infelizmente não temos mais " + bebida.tipo.name() + " :(", "Alerta - GuestCoffee", 3);
                 }
 
             } catch (Exception ex) {
