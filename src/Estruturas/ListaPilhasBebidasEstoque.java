@@ -4,7 +4,7 @@ package Estruturas;
 public class ListaPilhasBebidasEstoque implements TADListaPilhasBebidasEstoque {
 
     private int inicio, fim, quantidade;
-    private PilhaBebidas lista[];
+    private final PilhaBebidas lista[];
 
     public ListaPilhasBebidasEstoque(int tamanho) {
         lista = new PilhaBebidas[tamanho];

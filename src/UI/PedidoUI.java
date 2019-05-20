@@ -3,7 +3,9 @@ package UI;
 import Estruturas.FilaBebidasPedido;
 import Estruturas.Pedido;
 import Estruturas.TipoBebida;
+import static UI.GerenciaMaquina.ProcessaPedido;
 import java.awt.HeadlessException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public final class PedidoUI extends javax.swing.JFrame {
@@ -16,6 +18,7 @@ public final class PedidoUI extends javax.swing.JFrame {
     public PedidoUI(String nomeCliente) {
         initComponents();
         setLocationRelativeTo(null);
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         //Altera o nome no texto para o do cliente
         this.nomeCliente = nomeCliente;
@@ -203,6 +206,10 @@ public final class PedidoUI extends javax.swing.JFrame {
 
             //Cria um novo pedido com uma fila de bebidas para serem retiradas do estoque
             Pedido novo = new Pedido(nomeCliente, filaBebidas);
+            
+            JOptionPane.showMessageDialog(this, "Seu pedido foi enviado para preparo!!", "Informação", 3);
+            
+            ProcessaPedido(novo);
         } catch (HeadlessException ex) {
             JOptionPane.showMessageDialog(this, "Por favor, escolha ao menos uma bebida :)", "Alerta", 3);
             System.out.println("Erro: " + ex.getMessage());
@@ -241,7 +248,8 @@ public final class PedidoUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PedidoUI("").setVisible(true);
+                PedidoUI pedido =  new PedidoUI("");
+                pedido.setVisible(true);
             }
         });
     }

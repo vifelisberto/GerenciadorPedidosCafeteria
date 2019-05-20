@@ -5,6 +5,7 @@
  */
 package UI;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         setLocationRelativeTo(null);
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -142,7 +144,6 @@ public class Principal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             Principal pricipal = new Principal();
             pricipal.setVisible(true);
-//            pricipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
         });
     }
 

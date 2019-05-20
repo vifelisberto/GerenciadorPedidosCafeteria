@@ -41,14 +41,24 @@ public class GerenciaMaquina {
     public static void ProcessaPedido(Pedido pedido) {
         FilaBebidasPedido filaBebidas = pedido.getBebidas();
 
-        Bebida bebida = filaBebidas.dequeue();
+        while (!filaBebidas.isEmpty()) {
+            Bebida bebida = filaBebidas.dequeue();
 
-        try {
-            listaEstoque.getTipoBebida(bebida.tipo);
-        } catch (Exception ex) {
-            System.out.println("Não existem bebidas disponíveis :'(");
+            try {
+                PilhaBebidas pilhaBebidas = listaEstoque.getTipoBebida(bebida.tipo);
+                if (!pilhaBebidas.isEmpty()) {
+                    pilhaBebidas.pop();
+
+                    //Aqui é onde a bebida é tirada do estoque para ser entregue.
+                    JOptionPane.showConfirmDialog(null, "Pegue seu " + bebida.tipo.name() + " =D", "ENTREGA", 2);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Infelizmente não temos mais " + bebida.tipo.name() + " :(", "Alerta", 2);
+                }
+
+            } catch (Exception ex) {
+
+            }
         }
-
     }
 
 }
