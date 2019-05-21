@@ -23,7 +23,7 @@ public class GerenciaMaquina {
         PilhaBebidas pilhaCha = new PilhaBebidas(TipoBebida.Cha);
 
         try {
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 10; i++) {
                 pilhaCafe.push(TipoBebida.Cafe);
                 pilhaCappuccino.push(TipoBebida.Cappuccino);
                 pilhaChocolate.push(TipoBebida.Chocolate);
