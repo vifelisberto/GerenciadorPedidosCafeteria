@@ -17,26 +17,23 @@ public class EntregaBebida extends javax.swing.JDialog {
 
     /**
      * Creates new form EntregaBebida
+     *
      * @param parent
      * @param modal
-     * @param bebida
-     * @param nomeCliente
+     * @param bebida Bebida que sera entregue
+     * @param nomeCliente Nome do Cliente
      */
     private final String nomeCliente;
+
     public EntregaBebida(java.awt.Frame parent, boolean modal, String bebida, String nomeCliente) {
         super(parent, modal);
         initComponents();
-        
         this.nomeCliente = nomeCliente;
-        this.getContentPane().setBackground(new Color(254, 244, 234));
         
-        //Insere o nome da bebida no texto da tela.
-//        lblBebidaPronta.setText(String.format(lblBebidaPronta.getText(), bebida));;;
-//        
+        this.getContentPane().setBackground(new Color(254, 244, 234));
 
-           
-        //Insere o nome do cliente "no copo" da tela.
-//        lblIconBebidaNomeCliente.setText(nomeCliente);
+        //Insere o nome da bebida no texto da tela.
+        lblBebidaPronta.setText(String.format(lblBebidaPronta.getText(), bebida));
     }
 
     /**
@@ -106,21 +103,23 @@ public class EntregaBebida extends javax.swing.JDialog {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(lblIconBebidaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(lblIconBebidaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(btnPegarBebida)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(btnPegarBebida)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addGap(0, 54, Short.MAX_VALUE)
-                .addComponent(lblBebidaPronta)
-                .addGap(48, 48, 48))
+                        .addGap(44, 44, 44)
+                        .addComponent(lblBebidaPronta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(lblBebidaPronta)
+                .addComponent(lblBebidaPronta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(lblIconBebidaNomeCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -137,7 +136,7 @@ public class EntregaBebida extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

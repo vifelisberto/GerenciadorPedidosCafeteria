@@ -26,13 +26,13 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        
+
         setLocationRelativeTo(null);
         //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         URL url = getClass().getResource("Icon.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
-        
+
         this.getContentPane().setBackground(new Color(254, 244, 234));
 
         jpHeader.setBackground(new Color(65, 15, 3));
@@ -156,9 +156,13 @@ public class Principal extends javax.swing.JFrame {
         String nomeCliente = txtNomeCliente.getText();
 
         if (!nomeCliente.isEmpty() && !nomeCliente.equals(" ")) {
-            PedidoUI pedido = new PedidoUI(nomeCliente);
-            this.setVisible(false);
-            pedido.setVisible(true);
+            if (nomeCliente.length() < 9) {
+                PedidoUI pedido = new PedidoUI(nomeCliente);
+                this.setVisible(false);
+                pedido.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "O nome digitado é muito grande, por favor digite um nome com no máximo 8 caracteres", "Alerta - GuestCoffee", 1);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Por favor, informe seu nome!", "Alerta", 3);
         }
