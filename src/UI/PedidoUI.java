@@ -9,7 +9,6 @@ import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public final class PedidoUI extends javax.swing.JFrame {
@@ -318,7 +317,7 @@ public final class PedidoUI extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(this, "Seu pedido foi enviado para preparo!!", "Informação", 3);
 
-            ProcessaPedido(novo);
+            ProcessaPedido(novo, this);
             
             JOptionPane.showMessageDialog(this, "Obrigado volte sempre! :)");
             this.setVisible(false);
