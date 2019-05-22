@@ -1,6 +1,6 @@
 package Estruturas;
 
-// Pilha dinamica para armazenas bebidas
+// Pilha dinamica para armazenar bebidas por tipo
 import java.util.EmptyStackException;
 
 public class PilhaBebidas implements TADPilhaBebidas {

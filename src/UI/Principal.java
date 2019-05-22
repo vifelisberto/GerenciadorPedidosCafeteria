@@ -6,10 +6,12 @@
 package UI;
 
 import java.awt.Color;
+import java.awt.Event;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.net.URL;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,11 +33,20 @@ public class Principal extends javax.swing.JFrame {
         //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         URL url = getClass().getResource("Icon.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        this.setIconImage(imagemTitulo);
 
+        this.setIconImage(imagemTitulo);
         this.getContentPane().setBackground(new Color(254, 244, 234));
 
         jpHeader.setBackground(new Color(65, 15, 3));
+
+        txtNomeCliente.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent ke) {
+                if (ke.getKeyCode() == Event.ENTER) {
+                    btnContinuar.doClick();
+                }
+            }
+        });
     }
 
     /**

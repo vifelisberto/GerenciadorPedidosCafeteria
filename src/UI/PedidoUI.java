@@ -30,21 +30,20 @@ public final class PedidoUI extends javax.swing.JFrame {
         //Altera o nome no texto para o do cliente
         this.nomeCliente = nomeCliente;
         txtOqueDeseja.setText(String.format(txtOqueDeseja.getText(), nomeCliente));
-        
-         this.getContentPane().setBackground(new Color(254, 244, 234));
-         jpHeader.setBackground(new Color(65, 15, 3));
-        
+
+        this.getContentPane().setBackground(new Color(254, 244, 234));
+        jpHeader.setBackground(new Color(65, 15, 3));
+
         //Atualiza as quantidades de bebidas na tela
         AtualizaQuantidadesTela();
-
     }
 
     public void AtualizaQuantidadesTela() {
         try {
-            int qtdCafe = GerenciaMaquina.listaEstoque.getTipoBebida(TipoBebida.Cafe).size();
-            int qtdCappuccino = GerenciaMaquina.listaEstoque.getTipoBebida(TipoBebida.Cappuccino).size();
-            int qtdChocolate = GerenciaMaquina.listaEstoque.getTipoBebida(TipoBebida.Chocolate).size();
-            int qtdCha = GerenciaMaquina.listaEstoque.getTipoBebida(TipoBebida.Cha).size();
+            int qtdCafe = GerenciaMaquina.LISTA_ESTOQUE.getTipoBebida(TipoBebida.Cafe).size();
+            int qtdCappuccino = GerenciaMaquina.LISTA_ESTOQUE.getTipoBebida(TipoBebida.Cappuccino).size();
+            int qtdChocolate = GerenciaMaquina.LISTA_ESTOQUE.getTipoBebida(TipoBebida.Chocolate).size();
+            int qtdCha = GerenciaMaquina.LISTA_ESTOQUE.getTipoBebida(TipoBebida.Cha).size();
 
             EstoqueQtdCafe.setText(String.format(EstoqueQtdCafe.getText(), qtdCafe));
             EstoqueQtdCappuccino.setText(String.format(EstoqueQtdCappuccino.getText(), qtdCappuccino));
@@ -65,7 +64,7 @@ public final class PedidoUI extends javax.swing.JFrame {
             }
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Não foram encontradas bebidas: " + ex.getMessage(), "Alerta", 1);
+            JOptionPane.showMessageDialog(this, "Não foram encontradas bebidas: " + ex.getMessage(), "Alerta - GuestCoffee", 1);
         }
     }
 
@@ -190,38 +189,38 @@ public final class PedidoUI extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(PedidoQtdCha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(200, 200, 200)
+                                .addComponent(jLabel6)
+                                .addGap(33, 33, 33))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(iconXicaraCafe1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iconXicaraCafe2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iconXicaraCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iconXicaraCafe3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtOqueDeseja))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(PedidoQtdChocolate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel4))
+                                .addComponent(jLabel4)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(PedidoQtdCha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(PedidoQtdCafe, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                                    .addComponent(PedidoQtdCappuccino))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addGap(200, 200, 200)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnEnviarPedido)
-                                    .addComponent(jLabel6))))
-                        .addGap(200, 200, 200))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(PedidoQtdCafe, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                            .addComponent(PedidoQtdCappuccino))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(iconXicaraCafe3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(iconXicaraCafe2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(iconXicaraCafe1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(iconXicaraCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtOqueDeseja)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,15 +230,19 @@ public final class PedidoUI extends javax.swing.JFrame {
                     .addComponent(EstoqueQtdChocolate))
                 .addGap(100, 100, 100))
             .addComponent(jpHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEnviarPedido)
+                .addGap(400, 400, 400))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtOqueDeseja)
-                .addGap(47, 47, 47)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -250,8 +253,14 @@ public final class PedidoUI extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(PedidoQtdCappuccino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)))
-                            .addComponent(EstoqueQtdCappuccino))
+                                    .addComponent(jLabel3)
+                                    .addComponent(EstoqueQtdCappuccino)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(EstoqueQtdCafe)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(iconXicaraCafe3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(iconXicaraCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(PedidoQtdChocolate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,24 +268,19 @@ public final class PedidoUI extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(PedidoQtdCha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)))
+                            .addComponent(jLabel5))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(iconXicaraCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(iconXicaraCafe1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(iconXicaraCafe2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(EstoqueQtdCafe)
-                            .addComponent(iconXicaraCafe3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(90, 90, 90)
-                        .addComponent(EstoqueQtdChocolate)
+                            .addComponent(EstoqueQtdChocolate)
+                            .addComponent(iconXicaraCafe1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
-                        .addComponent(EstoqueQtdCha)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEnviarPedido)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iconXicaraCafe2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EstoqueQtdCha, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEnviarPedido)))
                 .addGap(18, 18, 18)
                 .addComponent(jpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -291,14 +295,16 @@ public final class PedidoUI extends javax.swing.JFrame {
             int qtdChocolate = (Integer) PedidoQtdChocolate.getValue();
             int qtdCha = (Integer) PedidoQtdCha.getValue();
 
+            //Verifica se foi selecionada pelo menos uma bebida
             if (qtdCafe == 0 && qtdCappuccino == 0 && qtdChocolate == 0 && qtdCha == 0) {
-                JOptionPane.showMessageDialog(this, "Por favor, escolha ao menos uma bebida :)", "Alerta", 3);
+                JOptionPane.showMessageDialog(this, "Por favor, escolha ao menos uma bebida :)", "Alerta - GuestCoffee", 3);
                 return;
             }
 
-            // Cria a fila de bebidas
+            // Instancia a fila de bebidas
             FilaBebidasPedido filaBebidas = new FilaBebidasPedido();
 
+            //Insere na fila, as respectivas bebidas
             if (qtdCafe > 0) {
                 filaBebidas.enqueue(TipoBebida.Cafe, qtdCafe);
             }
@@ -312,20 +318,18 @@ public final class PedidoUI extends javax.swing.JFrame {
                 filaBebidas.enqueue(TipoBebida.Cha, qtdCha);
             }
 
-            //Cria um novo pedido com uma fila de bebidas para serem retiradas do estoque
+            //Cria um novo pedido com uma fila de bebidas que futuramente serão retiradas do estoque
             Pedido novo = new Pedido(nomeCliente, filaBebidas);
 
-            JOptionPane.showMessageDialog(this, "Seu pedido foi enviado para preparo!!", "Informação", 3);
+            JOptionPane.showMessageDialog(this, "Seu pedido foi enviado para preparo!!", "Informação - GuestCoffee", 3);
 
             ProcessaPedido(novo, this);
-            
+
             JOptionPane.showMessageDialog(this, "Obrigado volte sempre! :)");
             this.setVisible(false);
             new Principal().setVisible(true);
-            
-            //Melhorar
         } catch (HeadlessException ex) {
-            JOptionPane.showMessageDialog(this, "Por favor, escolha ao menos uma bebida :)", "Alerta", 3);
+            JOptionPane.showMessageDialog(this, "Por favor, escolha ao menos uma bebida :)", "Alerta - GuestCoffee", 3);
             System.out.println("Erro: " + ex.getMessage());
         }
 

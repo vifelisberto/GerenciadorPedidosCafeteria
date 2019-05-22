@@ -1,6 +1,6 @@
 package Estruturas;
 
-// Lista estática para armazenar pilhas de bebidas
+// Lista estática para armazenar pilhas de bebidas (Estoque)
 public class ListaPilhasBebidasEstoque implements TADListaPilhasBebidasEstoque {
 
     private int inicio, fim, quantidade;

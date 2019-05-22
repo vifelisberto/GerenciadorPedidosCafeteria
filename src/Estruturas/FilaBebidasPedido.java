@@ -2,6 +2,7 @@ package Estruturas;
 
 import java.util.NoSuchElementException;
 
+//Fila dinâmica de Bebidas do Pedido
 public class FilaBebidasPedido implements TADFilaBebidasPedido {
 
     private Bebida inicio, fim;

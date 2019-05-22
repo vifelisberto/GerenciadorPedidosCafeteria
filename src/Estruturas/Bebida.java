@@ -3,7 +3,7 @@ package Estruturas;
 public class Bebida {
 
     public TipoBebida tipo;
-    protected int qtd; //verificar
+    protected int qtd; //Usada para o controle de quantidade de bebidas no pedido.
 
     Bebida proximo;
 
